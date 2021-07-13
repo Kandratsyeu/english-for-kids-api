@@ -19,13 +19,14 @@ app.get('/', (req, res) => {
 app.get('/db', async (req, res) => {
   client.connect()
 
-  res.end(
-    await client.query(
+  client
+    .query(
       'SELECT table_schema,table_name FROM information_schema.tables WHERE table_name = "columns";'
     )
-  )
-
-  client.end()
+    .then((answer) => {
+      res.end(answer)
+      client.end()
+    })
 })
 
 app.listen(PORT, () => {

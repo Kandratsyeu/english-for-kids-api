@@ -10,14 +10,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/db', async (req, res) => {
-  const { Client } = require('pg')
-  const client = new Client()
-  client.connect()
-  client.query('SELECT NOW()', (err, res) => {
-    if (err) throw err
-    console.log(res)
-    client.end()
-  })
+  res.end = '<h1>DB</h1>'
 })
 
 app.listen(PORT, () => {

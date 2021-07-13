@@ -19,10 +19,8 @@ app.get('/db', async (req, res) => {
 
   client.connect()
 
-  res.end(
-    client.query(
-      'SELECT table_schema,table_name FROM information_schema.tables WHERE table_name = "columns";'
-    )
+  client.query(
+    'SELECT table_schema,table_name FROM information_schema.tables WHERE table_name = "columns";'
   )
 })
 

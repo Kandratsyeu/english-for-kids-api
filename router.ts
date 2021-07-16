@@ -3,8 +3,8 @@ import { getCategories, createCategory } from './db'
 
 const categoriesRouter = Router()
 
-categoriesRouter.get('/', (req, res) => {
-  const categories = getCategories()
+categoriesRouter.get('/', async (req, res) => {
+  const categories = await getCategories()
   res.json(categories)
 })
 

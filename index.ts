@@ -1,11 +1,11 @@
 import express from 'express'
-import { json } from 'body-parser'
+import bodyParser from 'body-parser'
 import categoriesRouter from './router'
 
 const PORT = process.env.PORT || 80
 
 const app = express()
-app.use(json())
+app.use(bodyParser.json())
 
 app.use('/', categoriesRouter)
 

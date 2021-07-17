@@ -14,4 +14,4 @@ categoriesRouter.post('/', (req, res) => {
   res.json(props)
 })
 
-export default { categoriesRouter }
+export default categoriesRouter

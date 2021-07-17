@@ -3,7 +3,7 @@ import cors from 'cors'
 import { json } from 'body-parser'
 import router from './router'
 
-const PORT = Number(process.env.PORT) | 80
+const PORT = process.env.PORT || 80
 
 const app = express()
 app.use(json())

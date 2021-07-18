@@ -32,4 +32,9 @@ export function createCategory(name: string, image: string) {
   data.categories.push(newCategory)
 }
 
+export function removeCategory(id: number) {
+  const index = data.categories.findIndex((el) => el.id === id)
+  data.categories.splice(index, 1)
+}
+
 export default data

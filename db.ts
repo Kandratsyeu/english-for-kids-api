@@ -13,7 +13,7 @@ const data: DataBaseI = {
 }
 
 const newId = (() => {
-  let id = 0
+  let id = data.categories.length
   return function (): number {
     return id++
   }

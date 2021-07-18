@@ -1,5 +1,10 @@
 import { Router } from 'express'
-import { getCategories, createCategory, removeCategory } from './db'
+import {
+  getCategories,
+  createCategory,
+  removeCategory,
+  updateCategory,
+} from './db'
 
 const categoriesRouter = Router()
 
@@ -17,6 +22,16 @@ categoriesRouter.post('/', (req, res) => {
 categoriesRouter.delete('/:id', (req, res) => {
   const id = Number(req.params.id)
   removeCategory(id)
+  res.send(200)
+})
+
+categoriesRouter.post('/:id', (req, res) => {
+  const id = Number(req.params.id)
+  updateCategory({
+    id: id,
+    name: req.body.name,
+    image: req.body.image,
+  })
 })
 
 export default categoriesRouter

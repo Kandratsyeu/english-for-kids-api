@@ -37,4 +37,9 @@ export function removeCategory(id: number) {
   data.categories.splice(index, 1)
 }
 
+export function updateCategory(category: CategoryI) {
+  const index = data.categories.findIndex((el) => el.id === category.id)
+  data.categories[index] = category
+}
+
 export default data

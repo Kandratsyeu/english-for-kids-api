@@ -4,9 +4,11 @@ import {
   createCategory,
   removeCategory,
   updateCategory,
+  createWord,
 } from './db'
 
 const categoriesRouter = Router()
+const wordsRouter = Router()
 
 categoriesRouter.get('/', (req, res) => {
   const categories = getCategories()
@@ -22,7 +24,6 @@ categoriesRouter.post('/', (req, res) => {
 categoriesRouter.delete('/:id', (req, res) => {
   const id = Number(req.params.id)
   removeCategory(id)
-  res.send(200)
 })
 
 categoriesRouter.post('/:id', (req, res) => {
@@ -34,4 +35,15 @@ categoriesRouter.post('/:id', (req, res) => {
   })
 })
 
-export default categoriesRouter
+wordsRouter.get('/', (req, res) => {
+  const categories = getCategories()
+  res.json(categories)
+})
+
+wordsRouter.post('/', (req, res) => {
+  const props = req.body
+  createWord(props)
+  res.json(props)
+})
+
+export default { categoriesRouter, wordsRouter }

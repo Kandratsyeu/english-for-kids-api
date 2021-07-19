@@ -1,4 +1,4 @@
-import { CategoryI, DataBaseI } from './interfaces'
+import { CategoryI, DataBaseI, WordI } from './interfaces'
 
 const data: DataBaseI = {
   categories: [
@@ -40,6 +40,18 @@ export function removeCategory(id: number) {
 export function updateCategory(category: CategoryI) {
   const index = data.categories.findIndex((el) => el.id === category.id)
   data.categories[index] = category
+}
+
+export function getWords() {
+  return data.words
+  // category: number
+  // data.words.filter((word) => {
+  //   word.category === category
+  // })
+}
+
+export function createWord(newWord: WordI) {
+  data.words.push(newWord)
 }
 
 export default data

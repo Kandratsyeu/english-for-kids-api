@@ -42,7 +42,7 @@ wordsRouter.get('/', (req, res) => {
 })
 
 wordsRouter.post('/', (req, res) => {
-  const props = req.body
+  const props = JSON.parse(req.body.value)
   createWord(props)
   res.json(props)
 })

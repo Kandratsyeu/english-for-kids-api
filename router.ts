@@ -5,6 +5,7 @@ import {
   removeCategory,
   updateCategory,
   createWord,
+  getWords,
 } from './db'
 
 const categoriesRouter = Router()
@@ -36,7 +37,7 @@ categoriesRouter.post('/:id', (req, res) => {
 })
 
 wordsRouter.get('/', (req, res) => {
-  const categories = getCategories()
+  const categories = getWords()
   res.json(categories)
 })
 

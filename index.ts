@@ -10,6 +10,7 @@ app.use(cors())
 app.use(bodyParser.json())
 
 app.use('/', router.categoriesRouter)
+app.use(cors())
 app.use('/words', router.wordsRouter)
 
 app.listen(PORT, () => console.log('Server has been started...'))
